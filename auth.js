@@ -35,16 +35,8 @@ const onsignin= () =>{
     
     auth.signInWithEmailAndPassword(email,password )
 .then ((userAccount)=>{
-    // console.log(userAccount)
-    // db.collection("client").doc().set({first_name,second_name,email,phoneNumber,created_at:new Date()})
-    // .then((userProfile)=>{
-    //     alert("Registration successfull ✅ ")
-    //     console.log(userProfile);
-    // })
-    // .catch((error)=>{
-    //     alert("Not successfull ❌")
-    //     console.log(error);
-    // })
+    const userData=userAccount.user 
+    sessionStorage.setItem("user",JSON.stringify(userData))
     alert("login suceesfull")
     window.location.href = `home.html`;
 })
