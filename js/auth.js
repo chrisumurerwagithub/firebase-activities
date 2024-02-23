@@ -34,32 +34,8 @@ document.addEventListener("DOMContentLoaded", function () {
                     hideSpinner();
                     alert("Login failed. Please check your email and password.");
                 });
-            // db.collection("client").doc(userAccount.user.uid).get()
-            //     .then((doc) => {
-            //         if (doc.exists) {
-            //             const userData = doc.data();
-            //             sessionStorage.setItem("user", JSON.stringify(userData));
-            //
-            //             // Check if the user is an admin
-            //             if (userData.isAdmin) {
-            //                 // Redirect the user to the admin page
-            //                 window.location.href = `admin.html`;
-            //             } else {
-            //                 // Redirect the user to the home page
-            //                 window.location.href = `home.html`;
-            //             }
-            //         } else {
-            //             // User profile does not exist
-            //             console.error("User profile not found.");
-            //             hideSpinner();
-            //             alert("Login failed. User profile not found.");
-            //         }
-            //     })
-            //     .catch((error) => {
-            //         console.error("Error fetching user profile:", error);
-            //         hideSpinner();
-            //         alert("Login failed. An error occurred while fetching user profile.");
-            //     });
+            
+           
         });
     } else {
         registerForm.addEventListener("submit", (e) => {
@@ -86,7 +62,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     })
                         .then((userProfile) => {
                             alert("Registration successfull ✅ ")
-                            window.location.href = "../login.html"
+                            window.location.href = "login.html"
                         })
                         .catch((error) => {
                             alert("Not successfull ❌")

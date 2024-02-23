@@ -6,6 +6,7 @@ const user = JSON.parse(sessionStorage.getItem("user"));
 //     }
 // })
 document.addEventListener("DOMContentLoaded", () => {
+    const roomList = document.getElementById("roomList");
     db.collection("Rooms").where("status", "!=", "taken").get()
         .then((roomData) => {
             roomData.forEach((doc) => {

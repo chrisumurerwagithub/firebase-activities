@@ -1,38 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Room Reservations - Admin</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="css/home.css" rel="stylesheet">
+    <link href="css/admin.css" rel="stylesheet">
 
+</head>
+<body>
+<div class="container">
+    <h1>Admin Panel - Manage Rooms</h1>
+    <hr>
+    <button id="addNewRoomBtn">Add New Room</button>
+    <!-- Table to display rooms -->
+    <h2>Rooms</h2>
+    <table id="roomsTable">
+        <thead>
+        <tr>
+            <th>Room Title</th>
+            <th>Number</th>
+            <th>Price</th>
+            <th>Size</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody id="roomsTableBody">
+        <!-- Room data will be inserted here dynamically -->
+        </tbody>
+    </table>
 
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Second User</title>
-        <link rel="stylesheet" href="Admin.css">
+    <!-- Add Room Modal -->
+    <!-- Add Room Modal -->
+    <div class="modal" id="addRoomModal">
+        <div class="modal-content">
+            <span class="close" onclick="hideModal('addRoomModal')">&times;</span>
+            <h2>Add New Room</h2>
+            <form id="addRoomForm">
+                <label for="roomTitle">Room Title:</label>
+                <input id="roomTitle" name="roomTitle" required type="text">
 
-        <style>
-            /* Add your custom styles here */
-            button {
-                width: 180px; /* Adjust the width as needed */
-                padding: 15px; /* Adjust the padding as needed */
-                font-size: 14px; /* Adjust the font size as needed */
-                background-color: lightcoral;
-            }
-        </style>
-    </head>
-    <body>
-        <h1>Admin</h1>
-        
-        <form method="post" action="your_action_url">
-            <label for="email">Email:</label>
-            <br>
-            <input type="text" id="email" name="email" required>
-            <br>
-            
-            <label for="password">Password:</label>
-            <br>
-            <input type="password" id="password" name="password" required>
-            <br>
-            
-            <button type="submit">Login</button>
+                <label for="roomNumber">Room Number:</label>
+                <input id="roomNumber" name="roomNumber" required type="text">
+
+                <label for="roomSize">Room Size:</label>
+                <select id="roomSize" name="roomSize">
+                    <option value="Single">Single</option>
+                    <option value="Double">Double</option>
+                    <option value="Suite">Suite</option>
+                </select>
+
+                <label for="roomType">Room Type:</label>
+                <select id="roomType" name="roomType">
+                    <option value="Standard">Standard</option>
+                    <option value="Deluxe">Deluxe</option>
+                    <option value="Executive">Executive</option>
+                </select>
+
+                <!-- Add more fields as needed -->
+
+                <button type="submit">Add Room</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Update Room Modal -->
+<div id="updateRoomModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="hideModal('updateRoomModal')">&times;</span>
+        <h2>Update Room</h2>
+        <form id="updateRoomForm">
+            <label for="updatedTitle">Room Title:</label>
+            <input type="text" id="updatedTitle" name="updatedTitle" required>
+
+            <label for="updatedRoomNumber">Room Number:</label>
+            <input type="text" id="updatedRoomNumber" name="updatedRoomNumber" required>
+
+            <label for="updatedRoomSize">Room Size:</label>
+            <select id="updatedRoomSize" name="updatedRoomSize">
+                <option value="Single">Single</option>
+                <option value="Double">Double</option>
+                <option value="Suite">Suite</option>
+            </select>
+
+            <label for="updatedRoomType">Room Type:</label>
+            <select id="updatedRoomType" name="updatedRoomType">
+                <option value="Standard">Standard</option>
+                <option value="Deluxe">Deluxe</option>
+                <option value="Executive">Executive</option>
+            </select>
+
+            <!-- Add more fields as needed -->
+
+            <button type="submit">Update Room</button>
         </form>
-    </body>
-    </html>
+    </div>
+</div>
+
+</div>
+<script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-firestore.js"></script>
+<script src="js/firebase.js"></script>
+<script src="js/admin.js"></script>
+</body>
+</html>

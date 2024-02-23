@@ -35,7 +35,7 @@ const cancelBooking = (roomId) => {
         document.getElementById(roomId).remove();
     })
     .catch((error) => {
-        console.error("Error cancelling booking:", error);
+        console.error("Error cancelling booking:", error); 
         alert("Failed to cancel booking. Please try again.");
     });
 };
